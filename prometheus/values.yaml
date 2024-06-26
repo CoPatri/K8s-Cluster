@@ -117,10 +117,10 @@ prometheus:
     nodeSelector:
       kubernetes.io/hostname: {master node}
     securityContext:
-      runAsUser: {userid}
+      runAsUser: 1000
       runAsNonRoot: true
-      runAsGroup: {groupid}
-      fsGroup: {fsid}
+      runAsGroup: 1000
+      fsGroup: 1000
     persistentVolume:
       enabled: true
       existingClaim: "prometheus-usb-pvc"
