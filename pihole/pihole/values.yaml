@@ -1,0 +1,27 @@
+image:
+  repository: pihole/pihole
+  tag: "latest"
+
+service:
+  type: NodePort
+  externalTrafficPolicy: Cluster
+  web:
+    port: 80
+    nodePort: 30080
+  dns:
+    port: 53
+    nodePort: 30053
+
+persistence:
+  enabled: true
+  size: 2Gi
+
+resources:
+  requests:
+    memory: "256Mi"
+    cpu: "100m"
+  limits:
+    memory: "512Mi"
+    cpu: "200m"
+
+adminPassword: "nakina11"
