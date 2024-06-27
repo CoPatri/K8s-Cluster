@@ -1,5 +1,5 @@
 image:
-  repository: pihole/pihole
+  repository: pihole
   tag: "latest"
 
 service:
@@ -24,4 +24,4 @@ resources:
     memory: "512Mi"
     cpu: "200m"
 
-adminPassword: "nakina11"
+adminPassword: "bmFraW5hMTENCg=="
