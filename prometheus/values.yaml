@@ -18,3 +18,5 @@ prometheus:
       enabled: true
       existingClaim: "prometheus-usb-pvc"
       volumeName: "prometheus-usb-pv"
+    service:
+      port: 9090
