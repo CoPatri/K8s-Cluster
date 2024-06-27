@@ -10,7 +10,6 @@ spec:
   resources:
     requests:
       storage: {{ .Values.persistence.size }}
-  storageClassName: pihole-manual
 
 ---
 apiVersion: v1
@@ -25,4 +24,3 @@ spec:
   resources:
     requests:
       storage: {{ .Values.persistence.size }}
-  storageClassName: pihole-manual
