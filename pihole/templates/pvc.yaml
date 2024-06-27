@@ -10,6 +10,7 @@ spec:
   resources:
     requests:
       storage: {{ .Values.persistence.size }}
+  storageClassName: manual
 
 ---
 apiVersion: v1
@@ -24,3 +25,4 @@ spec:
   resources:
     requests:
       storage: {{ .Values.persistence.size }}
+  storageClassName: manual

@@ -8,4 +8,4 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 12Gi  # Example size, replace with actual size
+      storage: 3Gi  # Example size, replace with actual size
