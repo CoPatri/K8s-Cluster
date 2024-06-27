@@ -11,3 +11,18 @@ spec:
     requests:
       storage: {{ .Values.persistence.size }}
   storageClassName: pihole-manual
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: dnsmasq-pvc
+  labels:
+    app: pihole
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: {{ .Values.persistence.size }}
+  storageClassName: pihole-manual
