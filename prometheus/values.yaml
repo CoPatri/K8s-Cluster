@@ -14,6 +14,10 @@ prometheus:
       runAsNonRoot: true
       runAsGroup: 1000
       fsGroup: 1000
+    tolerations:
+      - key: "node-role.kubernetes.io/control-plane"
+        operator: "Exists"
+        effect: "NoSchedule"
     persistentVolume:
       enabled: true
       existingClaim: "prometheus-usb-pvc"
