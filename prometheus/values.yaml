@@ -116,6 +116,10 @@ prometheus:
   server:
     nodeSelector:
       kubernetes.io/hostname: node-0
+    tolerations:
+      - key: "node-role.kubernetes.io/control-plane"
+        operator: "Exists"
+        effect: "NoSchedule"
     securityContext:
       runAsUser: 1000
       runAsNonRoot: true
