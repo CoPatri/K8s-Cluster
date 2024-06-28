@@ -16,6 +16,13 @@ persistence:
   enabled: true
   size: 2Gi
 
+pihole:
+  server:
+    tolerations:
+      - key: "node-role.kubernetes.io/control-plane"
+        operator: "Exists"
+        effect: "NoSchedule"
+
 resources:
   requests:
     memory: "256Mi"
