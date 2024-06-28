@@ -44,3 +44,7 @@ spec:
       - name: dnsmasq-config
         persistentVolumeClaim:
           claimName: dnsmasq-pvc
+      tolerations:
+      - key: "node-role.kubernetes.io/control-plane"
+        operator: "Exists"
+        effect: "NoSchedule"
