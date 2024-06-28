@@ -10,7 +10,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
-  storageClassName: pihole-manual
+  storageClassName: manual
   hostPath:
     path: "/mnt/pv/pv1"
   nodeAffinity:
@@ -35,7 +35,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
-  storageClassName: dnsmasq-manual
+  storageClassName: manual
   hostPath:
     path: "/mnt/pv/pv2"
   nodeAffinity:
