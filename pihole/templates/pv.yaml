@@ -1,15 +1,32 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: pihole-usb-pv
+  name: pihole-sd-pv
   labels:
     type: local
 spec:
-  storageClassName: pihole-manual
   capacity:
-    storage: 1.85Gi  # Example size, replace with actual size
+    storage: 2Gi  # Example size, replace with actual size
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
+  storageClassName: pihole-manual
   hostPath:
-    path: "/mnt/usb2"
+    path: "/mnt/pv/pv1"
+
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: dnsmasq-sd-pv
+  labels:
+    type: local
+spec:
+  capacity:
+    storage: 2Gi  # Example size, replace with actual size
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: dnsmasq-manual
+  hostPath:
+    path: "/mnt/pv/pv2"
