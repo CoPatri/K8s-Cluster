@@ -1,5 +1,5 @@
 image:
-  repository: pihole
+  repository: pihole/pihole
   tag: "latest"
 
 service:
