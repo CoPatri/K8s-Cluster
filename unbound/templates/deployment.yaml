@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "unbound.fullname" . }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ include "unbound.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "unbound.name" . }}
+    spec:
+      containers:
+        - name: unbound
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          ports:
+            - containerPort: 53
+              protocol: UDP
+          volumeMounts:
+            - name: config-volume
+              mountPath: /etc/unbound/unbound.conf.d
+              subPath: unbound.conf
+      volumes:
+        - name: config-volume
+          configMap:
+            name: unbound-config

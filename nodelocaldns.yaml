@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: nodelocaldns
+  namespace: kube-system
+  labels:
+    k8s-app: kube-dns
+spec:
+  selector:
+    matchLabels:
+      k8s-app: kube-dns
+  template:
+    metadata:
+      labels:
+        k8s-app: kube-dns
+    spec:
+      containers:
+      - name: nodelocaldns
+        image: k8s.gcr.io/k8s-dns-node-cache:1.18.4
+        args:
+        - --dns-cache-cache-size=1000
+        ports:
+        - containerPort: 10053
+          hostPort: 10053
+          name: dns-local
+        volumeMounts:
+        - name: dns-cache-volume
+          mountPath: /cache
+      volumes:
+      - name: dns-cache-volume
+        hostPath:
+          path: /var/lib/kubelet/dns

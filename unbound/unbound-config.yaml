@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: unbound-config
+  namespace: default
+data:
+  unbound.conf: |
+    server:
+      verbosity: 1
+      interface: 0.0.0.0
+      port: 53
+      access-control: 0.0.0.0/0 allow
+      root-hints: "/etc/unbound/root.hints"
+      do-ip4: yes
+      do-udp: yes
+      do-tcp: yes
+      harden-glue: yes
+      harden-dnssec-stripped: yes
+      use-caps-for-id: yes
+      edns-buffer-size: 1472
+      prefetch: yes
+      cache-min-ttl: 3600
+      cache-max-ttl: 86400
+      private-address: 192.168.0.0/16
+      private-address: 172.16.0.0/12
+      private-address: 10.0.0.0/8
+  root.hints: |
+    .    3600000    IN    NS    a.root-servers.net.
+    a.root-servers.net. 3600000    A    198.41.0.4
+    ... (other root servers)

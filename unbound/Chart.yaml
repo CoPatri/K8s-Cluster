@@ -1,0 +1,4 @@
+apiVersion: v2
+name: unbound
+description: A Helm chart for deploying Unbound on Kubernetes
+version: 0.1.0
