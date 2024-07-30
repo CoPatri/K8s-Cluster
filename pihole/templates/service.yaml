@@ -22,5 +22,6 @@ spec:
     nodePort: {{ .Values.service.dns.nodePort }}
     protocol: TCP
     name: dns-tcp
+  externalTrafficPolicy: Local
   selector:
     app: pihole
