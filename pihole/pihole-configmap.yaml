@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pihole-config
+data:
+  01-pihole.conf: |
+    server {
+      listen-on port 53 { any; };
+      listen-on-v6 { any; };
+      allow-query { any; };
+      recursion yes;
+      forwarders {
+        127.0.0.1 port 53;
+      };
+      ...
+    }

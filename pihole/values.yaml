@@ -26,9 +26,9 @@ resources:
 
 adminPassword: "bmFraW5hMTENCg=="
 
-# # Add the upstream DNS configuration for Pi-hole
-# piHole:
-#   upstreamServers:
-#     # Use the service name of the Unbound deployment. 
-#     # This assumes Unbound is deployed in the same namespace as Pi-hole.
-#     - "unbound.unbound.svc.cluster.local#53"
+# Add the upstream DNS configuration for Pi-hole
+piHole:
+  upstreamServers:
+    # Use the service name of the Unbound deployment. 
+    # This assumes Unbound is deployed in the same namespace as Pi-hole.
+    - "unbound.pihole.svc.cluster.local#53"
