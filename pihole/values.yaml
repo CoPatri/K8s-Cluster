@@ -10,7 +10,7 @@ service:
     nodePort: 30123
   dns:
     port: 53
-    nodePort: 30054
+    nodePort: 30053
 
 persistence:
   enabled: true
